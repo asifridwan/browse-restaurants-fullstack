@@ -1,7 +1,13 @@
+import Navbar from "../components/Navbar";
+import Restaurants from "../components/Restaurants";
+
 function App() {
   return (
-    <div>Browse Restaurants Frontend</div>
-  );
+    <>
+      <Navbar />
+      <Restaurants />
+    </>
+  )
 }
 
 export default App;
