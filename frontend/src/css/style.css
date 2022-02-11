@@ -18,6 +18,16 @@ nav{
 }
 
 .logo{
+    display: flex;
+}
+
+.logo-img{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.logo-text{
     font-size: 26px;
     font-weight: 800;
     text-transform: uppercase;
