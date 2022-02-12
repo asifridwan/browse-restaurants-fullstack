@@ -85,7 +85,7 @@ nav{
     background-color: #f39c12;
 }
 
-.result-section{
+.restaurants{
     background-color: #f5e3bc;
     height: 93vh;
     width: auto;
@@ -95,7 +95,7 @@ nav{
     justify-content: center;
 }
 
-.heading, .result-box{
+.heading, .result{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -110,7 +110,7 @@ nav{
     font-weight: 800;
 }
 
-.result-box{
+.result{
     font-size: 19px;
     margin-bottom: 5px;
 }
