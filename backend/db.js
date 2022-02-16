@@ -8,4 +8,14 @@ const pool = new Pool({
     port: 5432
 });
 
-module.exports = pool;
+const queryRestaurants = (req, res) => {
+    pool.query('SELECT * FROM restaurants', (error, result) => {
+        if (error) {
+            throw error;
+        }
+
+        res.status(200).json(result.rows)
+    })
+}
+
+module.exports = queryRestaurants;

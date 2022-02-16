@@ -1,10 +1,8 @@
-import logo from "../images/logo.png";
-
 export default function Navbar() {
   return (
     <nav>
-      <div className="logo">
-        <img className="logo-img" src={logo} alt="" />
+      <div className="nav-centering">
+        <span className="logo-icon"></span>
         <span className="logo-text">Browse Restaurants</span>
       </div>
       <div>
@@ -17,6 +15,16 @@ export default function Navbar() {
           <option value="">Name</option>
           <option value="">Date and Time</option>
         </select>
+      </div>
+      <div className="dropdown">
+        <div className="nav-centering">
+          <span className="user-icon"></span>
+          <span>Username</span>
+        </div>
+        <div className="dropdown-list">
+          <p>Saved Restaurants</p>
+          <p>Logout</p>
+        </div>
       </div>
     </nav>
   )
