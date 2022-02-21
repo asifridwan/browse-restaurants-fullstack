@@ -8,8 +8,7 @@
 }
 
 body{
-    background-color: #f7e2c4;
-    min-height: 200vh;
+    background-color: #fff2dc;
 }
 
 nav{
@@ -18,6 +17,9 @@ nav{
     width: 100%;
     height: 7vh;
     position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -54,6 +56,7 @@ nav{
     padding: 6px;
     font-weight: 200;
     opacity: 0.85;
+    transition: ease-out 0.2s;
 }
 
 .search-box:hover{
@@ -65,12 +68,13 @@ nav{
     padding: 6px 10px;
     background-color: #d35400;
     color: white;
+    transition: ease-out 0.3s;
 }
 
 .search-button:hover{
     background-color: #eb5c4c;
     cursor: pointer;
-    transition: ease-in 0.2s;
+    transition: ease-in 0.3s;
 }
 
 .filter-select{
@@ -121,4 +125,48 @@ nav{
 
 .dropdown:hover .dropdown-list{
     display: block;
+}
+
+.dropdown-list p:hover{
+    color: rgb(255, 233, 161);
+}
+
+.no-restaurants{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    height: 93vh;
+}
+
+.restaurants-list{
+    margin-top: 8vh;
+    display: grid;
+    align-items: center;
+    row-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.restaurants-content{
+    background-color: #d35400;
+    color: white;
+    padding: 8px;
+    width: 350px;
+    height: 180px;
+    place-self: center;
+    transition: ease-out 0.2s;
+}
+
+.restaurants-content:hover{
+    cursor: pointer;
+    background-color: #eb5c4c;
+    transform: scale(1.05,1.05);
+    transition: ease-in 0.2s;
+}
+
+.timetable-icon{
+    background-color: white;
+    height: 30px;
+    width: 30px;
 }
