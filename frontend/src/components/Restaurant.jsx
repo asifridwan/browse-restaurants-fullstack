@@ -7,7 +7,8 @@ export default function Restaurant({name, timetable}) {
         <div className="restaurant-timetable">{timetable}</div>
       </p>
       <div className="add-button-centering">
-        <button className="add-button"><i className="fa fa-plus"></i> Add To Named Collection</button>
+        <button className="add-button"><i className="fa fa-plus"></i> Add This Restaurant</button>
+        {/* <button className="add-button"><i className="fa fa-times"></i> Remove This Restaurant</button> */}
       </div>
     </div>
   )
