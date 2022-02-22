@@ -33,7 +33,7 @@ nav{
 .logo-icon{
     height: 30px;
     width: 30px;
-    background-image: url('../icons/logo.png');
+    background-image: url('../images/logo.png');
     background-size: cover;
     margin-right: 10px;
 }
@@ -98,12 +98,9 @@ nav{
     background-color: #f39c12;
 }
 
-.user-icon{
-    height: 22px;
-    width: 22px;
-    background-image: url('../icons/user.png');
-    background-size: cover;
+#icon{
     margin-right: 5px;
+    font-size: 20px;
 }
 
 .dropdown{
@@ -140,10 +137,11 @@ nav{
 }
 
 .restaurants-list{
-    margin-top: 8vh;
+    margin-top: 9vh;
+    margin-bottom: 2vh;
     display: grid;
     align-items: center;
-    row-gap: 10px;
+    row-gap: 25px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
 }
@@ -151,22 +149,53 @@ nav{
 .restaurants-content{
     background-color: #d35400;
     color: white;
-    padding: 8px;
+    padding: 10px;
     width: 350px;
-    height: 180px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     place-self: center;
     transition: ease-out 0.2s;
 }
 
 .restaurants-content:hover{
-    cursor: pointer;
     background-color: #eb5c4c;
     transform: scale(1.05,1.05);
     transition: ease-in 0.2s;
 }
 
-.timetable-icon{
-    background-color: white;
-    height: 30px;
-    width: 30px;
+.restaurants-content:hover .add-button{
+    display: block;
+}
+
+.restaurant-name{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.timetable-centering{
+    display: flex;
+}
+
+.restaurant-timetable{
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.add-button-centering{
+    display: flex;
+    justify-content: center;
+}
+
+.add-button{
+    width: fit-content;
+    padding: 4px 8px;
+    font-size: 14px;
+    background: none;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    display: none;
 }

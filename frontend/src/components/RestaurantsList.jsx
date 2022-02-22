@@ -13,7 +13,7 @@ export default function RestaurantsList() {
     <section>
       {/* <div className="no-restaurants">No Restaurants Found</div> */}
       <div className="restaurants-list">
-        {restaurants.length && restaurants.map((item, i) => {
+        {restaurants.length > 0 && restaurants.map((item, i) => {
           return <Restaurant name={restaurants[i].name} timetable={restaurants[i].timetable} />
         })}
       </div>

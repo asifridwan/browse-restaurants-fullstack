@@ -18,7 +18,7 @@ export default function Navbar() {
       </div>
       <div className="dropdown">
         <div className="nav-centering">
-          <span className="user-icon"></span>
+          <i id="icon" className="fa fa-user-circle"></i>
           <span>Username</span>
         </div>
         <div className="dropdown-list">
