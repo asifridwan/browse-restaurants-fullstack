@@ -5,10 +5,7 @@ export default function Navbar() {
         <span className="logo-icon"></span>
         <span className="logo-text">Browse Restaurants</span>
       </div>
-      <div>
-        <input className="search-box" type="text" placeholder="Enter Name, Date or Time..."/>
-        <button className="search-button">Search</button>
-      </div>
+      <input className="search-box" type="text" placeholder="Type anything to search...."/>
       <div>
         <label htmlFor="" className="filter-select">Filter By : </label>
         <select name="" id="" className="filter-type">

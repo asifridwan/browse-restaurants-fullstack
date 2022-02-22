@@ -44,37 +44,20 @@ nav{
     text-transform: uppercase;
 }
 
-.search-box, .search-button{
+.search-box{
     border: none;
     outline: none;
+    padding: 6px 10px;
     font-size: 18px;
-    transition: ease-out 0.2s;
-}
-
-.search-box{
-    width: 300px;
-    padding: 6px;
     font-weight: 200;
+    width: 300px;
     opacity: 0.85;
     transition: ease-out 0.2s;
 }
 
-.search-box:hover{
-    opacity: 1;
+.search-box:hover, .search-box:focus{
+    opacity: 1.0;
     transition: ease-in 0.2s;
-}
-
-.search-button{
-    padding: 6px 10px;
-    background-color: #d35400;
-    color: white;
-    transition: ease-out 0.3s;
-}
-
-.search-button:hover{
-    background-color: #eb5c4c;
-    cursor: pointer;
-    transition: ease-in 0.3s;
 }
 
 .filter-select{

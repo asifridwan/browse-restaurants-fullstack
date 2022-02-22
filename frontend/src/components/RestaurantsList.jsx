@@ -14,7 +14,7 @@ export default function RestaurantsList() {
       {/* <div className="no-restaurants">No Restaurants Found</div> */}
       <div className="restaurants-list">
         {restaurants.length > 0 && restaurants.map((item, i) => {
-          return <Restaurant name={restaurants[i].name} timetable={restaurants[i].timetable} />
+          return <Restaurant key={i} name={restaurants[i].name} timetable={restaurants[i].timetable} />
         })}
       </div>
     </section>
