@@ -111,12 +111,30 @@ nav{
     color: rgb(255, 233, 161);
 }
 
-.no-restaurants{
+.loading-container{
+    margin-top: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
-    height: 93vh;
+}
+
+.loading-animation{
+    border: 6px solid #c7c7c7;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-top-color: #d35400;
+    border-left-color: #d35400;
+    animation: spin 1s infinite ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .restaurants-list{
@@ -148,7 +166,7 @@ nav{
     transition: ease-in 0.2s;
 }
 
-.restaurants-content:hover .add-button{
+.restaurants-content:hover .add-remove-button{
     display: block;
 }
 
@@ -166,12 +184,12 @@ nav{
     font-weight: 200;
 }
 
-.add-button-centering{
+.add-remove-button-centering{
     display: flex;
     justify-content: center;
 }
 
-.add-button{
+.add-remove-button{
     width: fit-content;
     padding: 4px 8px;
     font-size: 14px;
