@@ -1,10 +1,10 @@
 export default function Restaurant({name, timetable}) {
   return (
-    <div className="restaurants-content">
+    <div className="restaurant-box">
       <p className="restaurant-name">{name}</p>
       <div className="timetable-centering">
         <i id="icon" className="fa fa-calendar-check-o"></i>
-        <div className="restaurant-timetable">{timetable}</div>
+        <p className="restaurant-timetable">{timetable}</p>
       </div>
       <div className="add-remove-button-centering">
         <button className="add-remove-button"><i className="fa fa-plus"></i> Add To Saved Restaurants</button>

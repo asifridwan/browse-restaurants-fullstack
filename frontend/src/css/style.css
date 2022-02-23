@@ -141,13 +141,11 @@ nav{
     margin-top: 9vh;
     margin-bottom: 2vh;
     display: grid;
-    align-items: center;
-    row-gap: 25px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: auto auto auto auto auto;
+    row-gap: 30px;
 }
 
-.restaurants-content{
+.restaurant-box{
     background-color: #d35400;
     color: white;
     padding: 10px;
@@ -160,13 +158,13 @@ nav{
     transition: ease-out 0.2s;
 }
 
-.restaurants-content:hover{
+.restaurant-box:hover{
     background-color: #eb5c4c;
     transform: scale(1.05,1.05);
     transition: ease-in 0.2s;
 }
 
-.restaurants-content:hover .add-remove-button{
+.restaurant-box:hover .add-remove-button{
     display: block;
 }
 
@@ -199,4 +197,11 @@ nav{
     color: white;
     cursor: pointer;
     display: none;
+}
+
+@media screen and (max-width: 1366px){
+    .restaurants-list{
+        grid-template-columns: auto auto auto;
+        row-gap: 50px;
+    }
 }
