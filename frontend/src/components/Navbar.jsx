@@ -7,7 +7,7 @@ export default function Navbar({searchField, searchTypeAction, searchTypeName}) 
       </div>
       <input className="search-box" type="text" placeholder="Type anything to search...." onChange={searchField}/>
       <div>
-        <label className="filter-select">Filter By : </label>
+        <label className="filter-select">Filtering By : </label>
         <button className="filter-button" onClick={searchTypeAction}>{searchTypeName}</button>
       </div>
       <div className="dropdown">
