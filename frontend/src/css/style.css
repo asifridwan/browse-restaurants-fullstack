@@ -65,20 +65,21 @@ nav{
     font-weight: 200;
 }
 
-.filter-type{
-    opacity: 0.8;
-    color: white;
+.filter-button{
+    padding: 3px;
     font-size: 15px;
-    width: 130px;
     border: none;
     outline: none;
     background: none;
-    border-bottom: 1px solid white;
+    color: white;
+    cursor: pointer;
+    transition: ease-out 0.2s;
 }
 
-.filter-type option{
-    color: white;
-    background-color: #f39c12;
+.filter-button:hover{
+    color: #ffe9a1;
+    border-bottom: 2px solid #ffe9a1;
+    transition: ease-in 0.2s;
 }
 
 #icon{
@@ -108,7 +109,7 @@ nav{
 }
 
 .dropdown-list p:hover{
-    color: rgb(255, 233, 161);
+    color: #ffe9a1;
 }
 
 .loading-container{
