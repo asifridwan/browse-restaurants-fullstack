@@ -1,7 +1,7 @@
 export default function Navbar({searchField, searchTypeAction, searchTypeName}) {
   return (
     <nav>
-      <div className="nav-centering">
+      <div className="inline-centering">
         <span className="logo-icon"></span>
         <span className="logo-text">Browse Restaurants</span>
       </div>
@@ -11,7 +11,7 @@ export default function Navbar({searchField, searchTypeAction, searchTypeName}) 
         <button className="filter-button" onClick={searchTypeAction}>{searchTypeName}</button>
       </div>
       <div className="dropdown">
-        <div className="nav-centering">
+        <div className="inline-centering">
           <i id="icon" className="fa fa-user-circle"></i>
           <span>Username</span>
         </div>

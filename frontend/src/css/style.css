@@ -25,7 +25,7 @@ nav{
     justify-content: space-evenly;
 }
 
-.nav-centering{
+.inline-centering{
     display: flex;
     align-items: center;
 }
@@ -206,11 +206,6 @@ nav{
     justify-content: space-evenly;
     align-items: center;
     height: 100vh;
-}
-
-.intro-logo{
-    display: flex;
-    align-items: center;
 }
 
 .intro-logo-icon{

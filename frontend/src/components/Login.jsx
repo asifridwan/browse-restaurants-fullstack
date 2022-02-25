@@ -1,7 +1,7 @@
 export default function Login() {
   return (
     <div className="form-container">
-      <div className="intro-logo">
+      <div className="inline-centering">
         <div className="intro-logo-icon"></div>
         <div className="intro-logo-text">Browse Restaurants</div>
       </div>
