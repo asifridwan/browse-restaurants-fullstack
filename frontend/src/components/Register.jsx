@@ -7,8 +7,8 @@ export default function Register() {
       </div>
       <div className="registration-form">
         <p className="form-name">Registration</p>
-        <p className="form-error"><i className="fa fa-exclamation-circle"></i> This username or email is already used</p>
-        <p className="form-error"><i className="fa fa-exclamation-circle"></i> Passwords do not match</p>
+        {/* <p className="form-error"><i className="fa fa-exclamation-circle"></i> This username or email is already used</p> */}
+        {/* <p className="form-error"><i className="fa fa-exclamation-circle"></i> Passwords do not match</p> */}
         <input className="form-input" type="text" placeholder="Username" />
         <input className="form-input" type="text" placeholder="Email Address" />
         <input className="form-input" type="password" placeholder="Password" />

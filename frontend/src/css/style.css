@@ -78,7 +78,7 @@ nav{
 
 .filter-button:hover{
     color: #ffe9a1;
-    border-bottom: 2px solid #ffe9a1;
+    border-bottom: 2px solid;
     transition: ease-in 0.2s;
 }
 
@@ -251,7 +251,7 @@ nav{
 .form-error{
     color: #a8392d;
     background-color: #ffaea4;
-    border: 2px solid #a8392d;
+    border: 2px solid;
     padding: 5px 10px;
     font-size: 15px;
 }
@@ -296,8 +296,67 @@ nav{
 
 .form-switcher span:hover{
     color: #ffe9a1;
-    border-bottom: 1px solid #ffe9a1;
+    border-bottom: 1px solid;
     cursor: pointer;
+}
+
+.savedlist-container{
+    margin-top: 9vh;
+    margin-bottom: 2vh;
+}
+
+.go-back{
+    font-size: 20px;
+    margin-left: 20px;
+    color: brown;
+}
+
+.go-back:hover{
+    color: #eb5c4c;
+    border-bottom: 2px solid;
+    width: max-content;
+    cursor: pointer;
+}
+
+.collection-container{
+    margin-top: 30px;
+}
+
+.collection-id{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    margin-left: 20px;
+}
+
+.collection-name{
+    color: #d35400;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.collection-options{
+    font-size: 14px;
+    color: #a8392d;
+    display: none;
+}
+
+.collection-id:hover .collection-options{
+    display: block;
+}
+
+.collection-options:hover{
+    cursor: pointer;
+    color: #741a10;
+    border-bottom: 2px solid;
+}
+
+.savedlists-collections{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    row-gap: 30px;
 }
 
 @media screen and (max-width: 1366px){
