@@ -138,7 +138,7 @@ nav{
     }
 }
 
-.restaurants-list{
+.browse-restaurants-list{
     margin-top: 9vh;
     margin-bottom: 2vh;
     display: grid;
@@ -213,7 +213,7 @@ nav{
     align-items: center;
 }
 
-.logo-icon-dark{
+.intro-logo-icon{
     height: 50px;
     width: 50px;
     margin-right: 10px;
@@ -221,7 +221,7 @@ nav{
     background-size: cover;
 }
 
-.logo-text-dark{
+.intro-logo-text{
     color: #d35400;
     font-size: 35px;
     font-weight: 800;
@@ -251,6 +251,14 @@ nav{
     font-size: 30px;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+.form-error{
+    color: #a8392d;
+    background-color: #ffaea4;
+    border: 2px solid #a8392d;
+    padding: 5px 10px;
+    font-size: 15px;
 }
 
 .form-input, .submit-button{
@@ -298,7 +306,7 @@ nav{
 }
 
 @media screen and (max-width: 1366px){
-    .restaurants-list{
+    .browse-restaurants-list{
         grid-template-columns: auto auto auto;
         row-gap: 50px;
     }
