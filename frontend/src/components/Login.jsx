@@ -7,7 +7,7 @@ export default function Login() {
       </div>
       <div className="login-form">
         <p className="form-name">Login</p>
-        {/* <p className="form-error"><i className="fa fa-exclamation-circle"></i> Your username or password is incorrect</p> */}
+        {/* <p className="form-error"><i className="fa fa-exclamation-triangle"></i> Your username or password is incorrect</p> */}
         <input className="form-input" type="text" placeholder="Username or Email Address" />
         <input className="form-input" type="password" placeholder="Password" />
         <button className="submit-button">Login</button>

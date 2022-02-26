@@ -2,6 +2,9 @@
 /* import Login from "../components/Login"; */
 /* import Register from "../components/Register"; */
 /* import Saved from "./Saved"; */
+/* import DeleteModal from "../components/DeleteModal"; */
+/* import AddModal from "../components/AddModal"; */
+/* import RenameModal from "../components/RenameModal"; */
 
 function App() {
   return (
@@ -9,7 +12,10 @@ function App() {
       {/* <BrowseRestaurants /> */}
       {/* <Login /> */}
       {/* <Register /> */}
+      {/* <DeleteModal /> */}
       {/* <Saved /> */}
+      {/* <AddModal /> */}
+      {/* <RenameModal /> */}
     </>
   )
 }
