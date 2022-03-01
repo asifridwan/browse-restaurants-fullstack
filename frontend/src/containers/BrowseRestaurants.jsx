@@ -3,7 +3,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import BrowseRestaurantsList from "../components/BrowseRestaurantsList";
 
-export default function BrowseRestaurants() {
+export default function BrowseRestaurants({username, onSaved, onLogout}) {
     const [restaurants, setRestaurants] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchType, setSearchType] = useState('Name');
@@ -11,10 +11,6 @@ export default function BrowseRestaurants() {
     useEffect(() => {
         axios.get('http://localhost:4000/restaurants').then(res => setRestaurants(res.data))
     }, []);
-
-    const onSearchField = e => {
-        setSearchTerm(e.target.value);
-    }
 
     function settingSearchType() {
         if(searchType === 'Name') {
@@ -35,7 +31,7 @@ export default function BrowseRestaurants() {
 
     return(
         <div>
-            <Navbar searchField={onSearchField} searchTypeAction={settingSearchType} searchTypeName={searchType} />
+            <Navbar searchField={e => setSearchTerm(e.target.value)} searchTypeAction={settingSearchType} searchTypeName={searchType} username={username} saved={onSaved} logout={onLogout} />
             {searchType === 'Name' && <BrowseRestaurantsList data={filterRestaurantsByName} />}
             {searchType === 'Date and Time' && <BrowseRestaurantsList data={filterRestaurantsByDateAndTime} />}
         </div>

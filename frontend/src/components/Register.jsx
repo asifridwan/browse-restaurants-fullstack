@@ -1,4 +1,4 @@
-export default function Register() {
+export default function Register({switchToLogin, onSubmit, errorMessage, username, email, password}) {
   return (
     <div className="form-container">
       <div className="inline-centering">
@@ -7,14 +7,12 @@ export default function Register() {
       </div>
       <div className="registration-form">
         <p className="form-name">Registration</p>
-        {/* <p className="form-error"><i className="fa fa-exclamation-triangle"></i> This username or email is already used</p> */}
-        {/* <p className="form-error"><i className="fa fa-exclamation-triangle"></i> Passwords do not match</p> */}
-        <input className="form-input" type="text" placeholder="Username" />
-        <input className="form-input" type="text" placeholder="Email Address" />
-        <input className="form-input" type="password" placeholder="Password" />
-        <input className="form-input" type="password" placeholder="Confirm Password" />
-        <button className="submit-button">Register</button>
-        <p className="form-switcher">Already have an account ? <span>Login</span></p>
+        {errorMessage && <p className="form-error"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
+        <input className="form-input" type="text" placeholder="Username" onChange={username} />
+        <input className="form-input" type="text" placeholder="Email Address" onChange={email} />
+        <input className="form-input" type="password" placeholder="Password" onChange={password} />
+        <button className="submit-button" onClick={onSubmit}>Register</button>
+        <p className="form-switcher">Already have an account ? <span onClick={switchToLogin}>Login</span></p>
       </div>
     </div>
   )

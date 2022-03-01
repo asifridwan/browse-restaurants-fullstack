@@ -25,43 +25,47 @@ const register = (req, res) => {
     const {username, email, password} = req.body;
 
     if (username && email && password) {
-        pool.query('SELECT * FROM users WHERE username = $1 OR email = $2', [username, email], (err, resp) => {
-            if (err) {
-                res.send(err);
-            }
-    
-            if (resp.rows.length > 0) {
-                res.send("This username or email is already taken !");
-            }
-            else {
-                bcrypt.hash(password, 10, (error, hash) => {
-                    if (error) {
-                        res.send(error);
-                    }
-            
-                    pool.query('INSERT INTO users (id, username, email, password) VALUES ($1, $2, $3, $4)', [id, username, email, hash], (errors, results) => {
-                        if (errors) {
-                            throw errors;
+        if (password.length < 6) {
+            res.send("Password should be 6 characters or longer");
+        }
+        else {
+            pool.query('SELECT * FROM users WHERE username = $1 OR email = $2', [username, email], (err, resp) => {
+                if (err) {
+                    res.send(err);
+                }
+        
+                if (resp.rows.length > 0) {
+                    res.send("This Username or Email is already taken");
+                }
+                else {
+                    bcrypt.hash(password, 10, (error, hash) => {
+                        if (error) {
+                            res.send(error);
                         }
-                        else {
-                            res.send(`User with a Username of ${username}, Email of ${email} and ID ${id} successfully registered !`);
-                        }
+                
+                        pool.query('INSERT INTO users (id, username, email, password) VALUES ($1, $2, $3, $4)', [id, username, email, hash], (errors, results) => {
+                            if (errors) {
+                                res.send(errors);
+                            }
+                            
+                            res.status(200).send("Success");
+                        });
                     });
-                });
-            }
-        });
+                }
+            });
+        }
     }
     else {
-        res.send("Required fields cannot be empty !")
+        res.send("Required fields cannot be empty");
     }
 
 }
 
 const login = (req, res) => {
-    const {userinfo, password} = req.body;
+    const {username, password} = req.body;
 
-    if (userinfo && password) {
-        pool.query('SELECT * FROM users WHERE username = $1 OR email = $1', [userinfo], (error, result) => {
+    if (username && password) {
+        pool.query('SELECT * FROM users WHERE username = $1', [username], (error, result) => {
             if (error) {
                 res.send(error);
             }
@@ -69,19 +73,20 @@ const login = (req, res) => {
             if (result.rows.length > 0) {
                 bcrypt.compare(password, result.rows[0].password, (errors, response) => {
                     if (response) {
-                        res.send(`Welcome ${result.rows[0].username}`);
-                    } else {
-                        res.send("Incorrect Username/Email and Password combination");
+                        res.status(200).send("Success");
+                    }
+                    else {
+                        res.send("Incorrect Username and Password combination");
                     }
                 });
             }
             else {
-                res.send("This user does not exist");
+                res.send(`User doesn't exist`);
             }
         });
     }
     else {
-        res.send("Please enter a Username/Email and Password !");
+        res.send("Required fields cannot be empty");
     }
 }
 

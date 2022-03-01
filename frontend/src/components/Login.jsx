@@ -1,4 +1,4 @@
-export default function Login() {
+export default function Login({switchToRegister, errorMessage, username, password, onSubmit}) {
   return (
     <div className="form-container">
       <div className="inline-centering">
@@ -7,11 +7,11 @@ export default function Login() {
       </div>
       <div className="login-form">
         <p className="form-name">Login</p>
-        {/* <p className="form-error"><i className="fa fa-exclamation-triangle"></i> Your username or password is incorrect</p> */}
-        <input className="form-input" type="text" placeholder="Username or Email Address" />
-        <input className="form-input" type="password" placeholder="Password" />
-        <button className="submit-button">Login</button>
-        <p className="form-switcher">Don't have an account ? <span>Register</span> now</p>
+        {errorMessage && <p className="form-error"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
+        <input className="form-input" type="text" placeholder="Username or Email Address" onChange={username} />
+        <input className="form-input" type="password" placeholder="Password" onChange={password} />
+        <button className="submit-button" onClick={onSubmit}>Login</button>
+        <p className="form-switcher">Don't have an account ? <span onClick={switchToRegister}>Register</span> now</p>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-export default function Navbar({searchField, searchTypeAction, searchTypeName}) {
+export default function Navbar({searchField, searchTypeAction, searchTypeName, username, saved, logout}) {
   return (
     <nav>
       <div className="inline-centering">
@@ -13,11 +13,11 @@ export default function Navbar({searchField, searchTypeAction, searchTypeName}) 
       <div className="dropdown">
         <div className="inline-centering">
           <i id="icon" className="fa fa-user-circle"></i>
-          <span>Username</span>
+          <span>{username}</span>
         </div>
         <div className="dropdown-list">
-          <p>Saved Restaurants</p>
-          <p>Logout</p>
+          <p onClick={saved}>Saved Restaurants</p>
+          <p onClick={logout}>Logout</p>
         </div>
       </div>
     </nav>
