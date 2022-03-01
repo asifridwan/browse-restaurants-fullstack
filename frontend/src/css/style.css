@@ -65,21 +65,18 @@ nav{
     font-weight: 200;
 }
 
-.filter-button{
-    padding: 3px;
-    font-size: 15px;
+.filter-option{
+    padding: 2px 3px;
+    background: none;
     border: none;
     outline: none;
-    background: none;
+    font-size: 14px;
     color: white;
-    cursor: pointer;
-    transition: ease-out 0.2s;
+    border-bottom: 1px solid white;
 }
 
-.filter-button:hover{
-    color: #ffe9a1;
-    border-bottom: 2px solid;
-    transition: ease-in 0.2s;
+.filter-option option{
+    background-color: #f39c12;
 }
 
 #icon{

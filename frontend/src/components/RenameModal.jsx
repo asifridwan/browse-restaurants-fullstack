@@ -1,4 +1,4 @@
-export default function RenameModal() {
+export default function RenameModal({confirm, cancel}) {
   return (
     <div className="modal-background">
         <div className="modal-box rename-modal">
@@ -8,8 +8,8 @@ export default function RenameModal() {
                 <input type="text" placeholder="New Name of the collection" />
             </div>
             <div className="footer">
-                <button className="modal-button confirm">Confirm</button>
-                <button className="modal-button cancel">Cancel</button>
+                <button className="modal-button confirm" onClick={confirm}>Confirm</button>
+                <button className="modal-button cancel" onClick={cancel}>Cancel</button>
             </div>
         </div>
     </div>

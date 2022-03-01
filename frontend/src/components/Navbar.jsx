@@ -1,4 +1,4 @@
-export default function Navbar({searchField, searchTypeAction, searchTypeName, username, saved, logout}) {
+export default function Navbar({searchField, searchTypeAction, username, saved, logout}) {
   return (
     <nav>
       <div className="inline-centering">
@@ -7,8 +7,11 @@ export default function Navbar({searchField, searchTypeAction, searchTypeName, u
       </div>
       <input className="search-box" type="text" placeholder="Type anything to search...." onChange={searchField}/>
       <div>
-        <label className="filter-select">Filtering By : </label>
-        <button className="filter-button" onClick={searchTypeAction}>{searchTypeName}</button>
+        <label className="filter-select">Filter By : </label>
+        <select className="filter-option" onChange={searchTypeAction}>
+          <option value="name">Name</option>
+          <option value="timetable">Date and Time</option>
+        </select>
       </div>
       <div className="dropdown">
         <div className="inline-centering">

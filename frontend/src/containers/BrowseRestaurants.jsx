@@ -1,24 +1,38 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import Navbar from "../components/Navbar";
 import BrowseRestaurantsList from "../components/BrowseRestaurantsList";
+import AddModal from "../components/AddModal";
 
 export default function BrowseRestaurants({username, onSaved, onLogout}) {
     const [restaurants, setRestaurants] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [searchType, setSearchType] = useState('Name');
+    const [searchByName, setSearchByName] = useState(true);
+    const [showBrowse, setShowBrowse] = useState(true);
+    const [showAddModal, setShowAddModal] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:4000/restaurants').then(res => setRestaurants(res.data))
     }, []);
 
-    function settingSearchType() {
-        if(searchType === 'Name') {
-          setSearchType('Date and Time')
+    function SettingSearchType(e) {
+        if (e.target.value === 'timetable') {
+            setSearchByName(false);
         }
         else {
-          setSearchType('Name')
+            setSearchByName(true);
         }
+    }
+
+    function ShowAdd() {
+        setShowBrowse(false);
+        setShowAddModal(true);
+    }
+
+    function CancelAdd() {
+        setShowAddModal(false);
+        setShowBrowse(true);
     }
 
     const filterRestaurantsByName = restaurants.filter(item => {
@@ -30,10 +44,12 @@ export default function BrowseRestaurants({username, onSaved, onLogout}) {
     });
 
     return(
-        <div>
-            <Navbar searchField={e => setSearchTerm(e.target.value)} searchTypeAction={settingSearchType} searchTypeName={searchType} username={username} saved={onSaved} logout={onLogout} />
-            {searchType === 'Name' && <BrowseRestaurantsList data={filterRestaurantsByName} />}
-            {searchType === 'Date and Time' && <BrowseRestaurantsList data={filterRestaurantsByDateAndTime} />}
-        </div>
+        <>
+            {showBrowse && <div>
+                <Navbar searchField={e => setSearchTerm(e.target.value)} searchTypeAction={SettingSearchType} username={username} saved={onSaved} logout={onLogout} />
+                {searchByName ? <BrowseRestaurantsList data={filterRestaurantsByName} add={ShowAdd} /> : <BrowseRestaurantsList data={filterRestaurantsByDateAndTime} add={ShowAdd} />}
+            </div>}
+            {showAddModal && <AddModal confirm={CancelAdd} cancel={CancelAdd} />}
+        </>
     )
 }

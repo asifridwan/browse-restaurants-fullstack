@@ -1,4 +1,4 @@
-export default function Restaurant({name, timetable}) {
+export default function Restaurant({name, timetable, add}) {
   return (
     <div className="restaurant-box">
       <p className="restaurant-name">{name}</p>
@@ -7,7 +7,7 @@ export default function Restaurant({name, timetable}) {
         <p className="restaurant-timetable">{timetable}</p>
       </div>
       <div className="add-remove-button-centering">
-        <button className="add-remove-button"><i className="fa fa-plus"></i> Add To Saved Restaurants</button>
+        <button className="add-remove-button" onClick={add}><i className="fa fa-plus"></i> Add To Saved Restaurants</button>
         {/* <button className="add-remove-button"><i className="fa fa-times"></i> Remove From Saved Restaurants</button> */}
       </div>
     </div>

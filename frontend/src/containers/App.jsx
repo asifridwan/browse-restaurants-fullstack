@@ -4,7 +4,7 @@ import axios from "axios";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import BrowseRestaurants from "./BrowseRestaurants";
-import SavedList from "../components/SavedList";
+import Saved from "./Saved";
 
 function App() {
   const [username, setUsername] = useState('');
@@ -88,7 +88,7 @@ function App() {
       {showLogin && <Login switchToRegister={SwitchToRegister} username={e => setUsername(e.target.value)} password={e => setPassword(e.target.value)} onSubmit={LoginUser} errorMessage={errorMessage} />}
       {showRegister && <Register switchToLogin={SwitchToLogin} username={e => setUsername(e.target.value)} email={e => setEmail(e.target.value)} password={e => setPassword(e.target.value)} onSubmit={RegisterUser} errorMessage={errorMessage} />}
       {showApp && <BrowseRestaurants username={username} onSaved={SwitchToSaved} onLogout={LogoutUser} />}
-      {showSaved && <SavedList back={SwitchToApp} />}
+      {showSaved && <Saved back={SwitchToApp} />}
     </>
   )
 }

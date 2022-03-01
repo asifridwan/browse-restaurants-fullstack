@@ -1,13 +1,13 @@
 import LoadingSpinner from "./LoadingSpinner";
 import Restaurant from "./Restaurant";
 
-export default function BrowseRestaurantsList({data}) {
+export default function BrowseRestaurantsList({data, add}) {
   return (
     <section>
       {data.length === 0 && <LoadingSpinner />}
       <div className="browse-restaurants-list">
         {data.length > 0 && data.map((item, i) => {
-          return <Restaurant key={i} name={item.name} timetable={item.timetable} />
+          return <Restaurant key={i} name={item.name} timetable={item.timetable} add={add} />
         })}
       </div>
     </section>

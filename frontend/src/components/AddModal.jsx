@@ -1,4 +1,4 @@
-export default function AddModal() {
+export default function AddModal({confirm, cancel}) {
   return (
     <div className="modal-background">
         <div className="modal-box add-modal">
@@ -16,8 +16,8 @@ export default function AddModal() {
               </select>
             </div>
             <div className="footer">
-                <button className="modal-button confirm">Confirm</button>
-                <button className="modal-button cancel">Cancel</button>
+                <button className="modal-button confirm" onClick={confirm}>Confirm</button>
+                <button className="modal-button cancel" onClick={cancel}>Cancel</button>
             </div>
         </div>
     </div>
