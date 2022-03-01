@@ -245,7 +245,7 @@ nav{
     text-transform: uppercase;
 }
 
-.form-error{
+.error-message{
     color: #a8392d;
     background-color: #ffaea4;
     border: 2px solid;

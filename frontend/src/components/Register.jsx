@@ -7,7 +7,7 @@ export default function Register({switchToLogin, onSubmit, errorMessage, usernam
       </div>
       <div className="registration-form">
         <p className="form-name">Registration</p>
-        {errorMessage && <p className="form-error"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
+        {errorMessage && <p className="error-message"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
         <input className="form-input" type="text" placeholder="Username" onChange={username} />
         <input className="form-input" type="text" placeholder="Email Address" onChange={email} />
         <input className="form-input" type="password" placeholder="Password" onChange={password} />

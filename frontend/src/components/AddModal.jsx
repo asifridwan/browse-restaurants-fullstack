@@ -3,6 +3,7 @@ export default function AddModal({confirm, cancel}) {
     <div className="modal-background">
         <div className="modal-box add-modal">
             <div className="header"><i className="fa fa-plus-circle"></i> Create or Choose</div>
+            <p className="error-message"><i className="fa fa-exclamation-triangle"></i> Error Message</p>
             <div className="midsection">
               <div>Give your collection a name (e.g. Vegan Lovers) :</div>
               <input type="text" placeholder="Name of the collection" />

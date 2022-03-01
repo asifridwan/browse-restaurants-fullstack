@@ -7,7 +7,7 @@ export default function Login({switchToRegister, errorMessage, username, passwor
       </div>
       <div className="login-form">
         <p className="form-name">Login</p>
-        {errorMessage && <p className="form-error"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
+        {errorMessage && <p className="error-message"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
         <input className="form-input" type="text" placeholder="Username or Email Address" onChange={username} />
         <input className="form-input" type="password" placeholder="Password" onChange={password} />
         <button className="submit-button" onClick={onSubmit}>Login</button>

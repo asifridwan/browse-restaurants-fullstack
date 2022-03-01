@@ -3,6 +3,7 @@ export default function RenameModal({confirm, cancel}) {
     <div className="modal-background">
         <div className="modal-box rename-modal">
             <div className="header"><i className="fa fa-eraser"></i> Rename</div>
+            <p className="error-message"><i className="fa fa-exclamation-triangle"></i> Error Message</p>
             <div className="midsection">
                 <div>Write a new name for your collection :</div>
                 <input type="text" placeholder="New Name of the collection" />
