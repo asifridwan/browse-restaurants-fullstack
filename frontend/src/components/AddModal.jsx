@@ -1,21 +1,31 @@
-export default function AddModal({confirm, cancel}) {
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function AddModal({userid, collectionName, collectionID, errorMessage, confirm, cancel}) {
+  const [collections, setCollections] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:4000/collections/${userid}`).then(res => setCollections(res.data))
+  }, [userid]);
+
   return (
     <div className="modal-background">
         <div className="modal-box add-modal">
             <div className="header"><i className="fa fa-plus-circle"></i> Create or Choose</div>
-            <p className="error-message"><i className="fa fa-exclamation-triangle"></i> Error Message</p>
+            {errorMessage && <p className="error-message"><i className="fa fa-exclamation-triangle"></i> {errorMessage}</p>}
             <div className="midsection">
               <div>Give your collection a name (e.g. Vegan Lovers) :</div>
-              <input type="text" placeholder="Name of the collection" />
+              <input type="text" placeholder="Name of the collection" onChange={collectionName} />
             </div>
-            <div className="midsection">
-              <label>Or choose a collection from an existing one :</label>
-              <select name="" id="">
-                <option value="">Name 1</option>
-                <option value="">Name 2</option>
-                <option value="">Name 3</option>
+            {collections.length > 0 && <div className="midsection">
+              <label>Or choose a one from an existing collection :</label>
+              <select onChange={collectionID}>
+                <option value="">Select from an existing</option>
+                {collections.map((item, i) => {
+                  return <option key={i} value={item.id}>{item.name}</option>
+                })}
               </select>
-            </div>
+            </div>}
             <div className="footer">
                 <button className="modal-button confirm" onClick={confirm}>Confirm</button>
                 <button className="modal-button cancel" onClick={cancel}>Cancel</button>
