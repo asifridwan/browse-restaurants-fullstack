@@ -1,4 +1,4 @@
-export default function Restaurant({id, name, timetable, SendRestaurantID}) {
+export default function Restaurant({id, name, timetable, SendRestaurantID, canAdd, canRemove}) {
   const restaurantID = id;
 
   return (
@@ -9,8 +9,8 @@ export default function Restaurant({id, name, timetable, SendRestaurantID}) {
         <p className="restaurant-timetable">{timetable}</p>
       </div>
       <div className="add-remove-button-centering">
-        <button className="add-remove-button" onClick={() => SendRestaurantID(restaurantID)}><i className="fa fa-plus"></i> Add To Saved Restaurants</button>
-        {/* <button className="add-remove-button"><i className="fa fa-times"></i> Remove From Saved Restaurants</button> */}
+        {canAdd && <button className="add-remove-button" onClick={() => SendRestaurantID(restaurantID)}><i className="fa fa-plus"></i> Add To Saved Restaurants</button>}
+        {canRemove && <button className="add-remove-button" onClick={() => SendRestaurantID(restaurantID)}><i className="fa fa-times"></i> Remove From Saved Restaurants</button>}
       </div>
     </div>
   )

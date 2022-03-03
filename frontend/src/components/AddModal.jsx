@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function AddModal({userid, collectionName, collectionID, errorMessage, confirm, cancel}) {
+export default function AddModal({userID, collectionName, collectionID, errorMessage, confirm, cancel}) {
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/collections/${userid}`).then(res => setCollections(res.data))
-  }, [userid]);
+    axios.get(`http://localhost:4000/collections/${userID}`).then(res => setCollections(res.data))
+  }, [userID]);
 
   return (
     <div className="modal-background">

@@ -5,13 +5,12 @@ import Navbar from "../components/Navbar";
 import RestaurantsList from "../components/RestaurantsList";
 import AddModal from "../components/AddModal";
 
-export default function BrowseRestaurants({username, onSaved, onLogout}) {
+export default function BrowseRestaurants({username, userID, onSaved, onLogout}) {
     const [restaurants, setRestaurants] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchByName, setSearchByName] = useState(true);
     const [showBrowse, setShowBrowse] = useState(true);
     const [showAddModal, setShowAddModal] = useState(false);
-    const [userID, setUserID] = useState('');
     const [restaurantID, setRestaurantID] = useState();
     const [collectionName, setCollectionName] = useState('');
     const [collectionID, setCollectionID] = useState('');
@@ -21,9 +20,6 @@ export default function BrowseRestaurants({username, onSaved, onLogout}) {
         axios.get('http://localhost:4000/restaurants').then(res => setRestaurants(res.data))
     }, []);
 
-    useEffect(() => {
-        axios.get(`http://localhost:4000/users/${username}`).then(res => setUserID(res.data[0].id))
-    }, [username]);
 
     function SettingSearchType(e) {
         if (e.target.value === 'timetable') {
@@ -82,7 +78,7 @@ export default function BrowseRestaurants({username, onSaved, onLogout}) {
                 <Navbar searchField={e => setSearchTerm(e.target.value)} searchTypeAction={SettingSearchType} username={username} saved={onSaved} logout={onLogout} />
                 {searchByName ? <RestaurantsList data={filterRestaurantsByName} PassRestaurantID={ShowAdd} /> : <RestaurantsList data={filterRestaurantsByDateAndTime} PassRestaurantID={ShowAdd} />}
             </div>}
-            {showAddModal && <AddModal userid={userID} collectionName={e => setCollectionName(e.target.value)} collectionID={SettingCollectionID} errorMessage={errorMessage} confirm={ConfirmAdd} cancel={CloseAdd} />}
+            {showAddModal && <AddModal userID={userID} collectionName={e => setCollectionName(e.target.value)} collectionID={SettingCollectionID} errorMessage={errorMessage} confirm={ConfirmAdd} cancel={CloseAdd} />}
         </>
     )
 }

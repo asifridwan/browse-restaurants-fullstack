@@ -3,8 +3,7 @@ import axios from "axios";
 
 import Login from "../components/Login";
 import Register from "../components/Register";
-import BrowseRestaurants from "./BrowseRestaurants";
-import Saved from "./Saved";
+import MainApp from "./MainApp";
 
 function App() {
   const [username, setUsername] = useState('');
@@ -14,7 +13,6 @@ function App() {
   const [showLogin, setShowLogin] = useState(true);
   const [showRegister, setShowRegister] = useState(false);
   const [showApp, setShowApp] = useState(false);
-  const [showSaved, setShowSaved] = useState(false);
 
   function SwitchToRegister() {
     setShowLogin(false);
@@ -31,16 +29,6 @@ function App() {
     setUsername('');
     setEmail('');
     setPassword('');
-  }
-
-  function SwitchToSaved() {
-    setShowApp(false);
-    setShowSaved(true);
-  }
-
-  function SwitchToApp() {
-    setShowSaved(false);
-    setShowApp(true);
   }
 
   function LoginUser() {
@@ -87,8 +75,7 @@ function App() {
     <>
       {showLogin && <Login switchToRegister={SwitchToRegister} username={e => setUsername(e.target.value)} password={e => setPassword(e.target.value)} onSubmit={LoginUser} errorMessage={errorMessage} />}
       {showRegister && <Register switchToLogin={SwitchToLogin} username={e => setUsername(e.target.value)} email={e => setEmail(e.target.value)} password={e => setPassword(e.target.value)} onSubmit={RegisterUser} errorMessage={errorMessage} />}
-      {showApp && <BrowseRestaurants username={username} onSaved={SwitchToSaved} onLogout={LogoutUser} />}
-      {showSaved && <Saved back={SwitchToApp} />}
+      {showApp && <MainApp username={username} onLogout={LogoutUser} />}
     </>
   )
 }

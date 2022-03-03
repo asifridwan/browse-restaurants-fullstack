@@ -16,7 +16,7 @@ const getRestaurants = (req, res) => {
             res.send(error);
         }
         
-        res.status(200).json(result.rows);
+        res.status(200).send(result.rows);
     });
 }
 
@@ -41,6 +41,18 @@ const getCollections = (req, res) => {
         }
 
         res.send(result.rows);
+    });
+}
+
+const getSavedRestaurants = (req, res) => {
+    const {id} = req.params;
+
+    pool.query('SELECT restaurants.id, restaurants.name, restaurants.timetable FROM cr_map JOIN restaurants ON cr_map.r_id = restaurants.id WHERE cr_map.c_id = $1', [id], (error, result) => {
+        if (error) {
+            res.send(error);
+        }
+
+        res.status(200).send(result.rows);
     });
 }
 
@@ -170,4 +182,52 @@ const addNewCollection = (req, res) => {
     }
 }
 
-module.exports = {getRestaurants, getUserID, getCollections, register, login, addNewCollection};
+const rename = (req, res) => {
+    const {id} = req.params;
+    const {name} = req.body;
+
+    if (name) {
+        pool.query('UPDATE collections SET name = $1 WHERE id = $2', [name, id], (error, result) => {
+            if (error) {
+                res.send(error);
+            }
+
+            res.status(200).send("Success");
+        });
+    }
+    else {
+        res.send("Please enter a name");
+    }
+}
+
+const deleteCollection = (req, res) => {
+    const {id} = req.params;
+
+    pool.query('DELETE FROM cr_map WHERE c_id = $1', [id], (error, result) => {
+        if (error) {
+            res.send(error);
+        }
+
+        pool.query('DELETE FROM collections WHERE id = $1', [id], (err, resp) => {
+            if (err) {
+                res.send(error);
+            }
+
+            res.status(200).send("Success");
+        });
+    });
+}
+
+const deleteRestaurant = (req, res) => {
+    const {id} = req.params;
+
+    pool.query('DELETE FROM cr_map WHERE r_id = $1', [id], (error, result) => {
+        if (error) {
+            res.send(error);
+        }
+
+        res.status(200).send("Success");
+    });
+}
+
+module.exports = {getRestaurants, getUserID, getCollections, getSavedRestaurants, register, login, addNewCollection, rename, deleteCollection, deleteRestaurant};
