@@ -1,10 +1,11 @@
 {
   "name": "browse-restaurants-backend",
   "version": "1.0.0",
-  "description": "Backend REST API & Database for Browse Restaurants App",
+  "description": "Backend REST API for Browse Restaurants App",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Asif Ridwan",
   "license": "ISC",

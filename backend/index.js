@@ -1,37 +1,18 @@
-const express = require('express');
-const cors = require('cors');
-
-const queries = require('./queries');
+import express from 'express';
+import cors from 'cors';
+import router from './routes/router.js';
 
 const app = express();
-const port = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
-app.use(express.json(), cors({origin: '*'}));
+app.use(express.json());
+app.use(cors());
+app.use('/', router);
 
-app.listen(port, () => {
-    console.log(`Server up and running at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server up and running at http://localhost:${PORT}`);
 });
 
 app.get('/', (req, res) => {
     res.send("Browse Restaurants Backend");
 });
-
-app.get('/restaurants', queries.getRestaurants);
-
-app.get('/users/:name', queries.getUserID);
-
-app.get('/collections/:id', queries.getCollections);
-
-app.get('/saved/:id', queries.getSavedRestaurants);
-
-app.post('/register', queries.register);
-
-app.post('/login', queries.login);
-
-app.post('/add', queries.addNewCollection);
-
-app.patch('/rename/:id', queries.rename);
-
-app.delete('/collection/:id', queries.deleteCollection);
-
-app.delete('/restaurant/:id', queries.deleteRestaurant);

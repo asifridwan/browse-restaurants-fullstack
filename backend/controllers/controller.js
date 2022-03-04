@@ -1,6 +1,8 @@
-const { v1: uuidv1, v4: uuidv4 } = require('uuid');
-const bcrypt = require('bcrypt');
-const Pool = require('pg').Pool;
+import { v1 as uuidv1, v4 as uuidv4 } from 'uuid';
+import bcrypt from 'bcrypt';
+import pkg from 'pg';
+
+const { Pool } = pkg;
 
 const pool = new Pool({
     user: 'postgres',
@@ -10,7 +12,7 @@ const pool = new Pool({
     port: 5432
 });
 
-const getRestaurants = (req, res) => {
+export const getRestaurants = (req, res) => {
     pool.query('SELECT * FROM restaurants', (error, result) => {
         if (error) {
             res.send(error);
@@ -20,7 +22,7 @@ const getRestaurants = (req, res) => {
     });
 }
 
-const getUserID = (req, res) => {
+export const getUserID = (req, res) => {
     const {name} = req.params;
 
     pool.query('SELECT * FROM users WHERE username = $1', [name], (error, result) => {
@@ -32,7 +34,7 @@ const getUserID = (req, res) => {
     });
 }
 
-const getCollections = (req, res) => {
+export const getCollections = (req, res) => {
     const {id} = req.params;
     
     pool.query('SELECT * FROM collections WHERE user_id = $1', [id], (error, result) => {
@@ -44,7 +46,7 @@ const getCollections = (req, res) => {
     });
 }
 
-const getSavedRestaurants = (req, res) => {
+export const getSavedRestaurants = (req, res) => {
     const {id} = req.params;
 
     pool.query('SELECT restaurants.id, restaurants.name, restaurants.timetable FROM cr_map JOIN restaurants ON cr_map.r_id = restaurants.id WHERE cr_map.c_id = $1', [id], (error, result) => {
@@ -56,7 +58,7 @@ const getSavedRestaurants = (req, res) => {
     });
 }
 
-const register = (req, res) => {
+export const register = (req, res) => {
     const id = uuidv4();
     const {username, email, password} = req.body;
 
@@ -97,7 +99,7 @@ const register = (req, res) => {
 
 }
 
-const login = (req, res) => {
+export const login = (req, res) => {
     const {username, password} = req.body;
 
     if (username && password) {
@@ -126,7 +128,7 @@ const login = (req, res) => {
     }
 }
 
-const addNewCollection = (req, res) => {
+export const addNewCollection = (req, res) => {
     const {name, old_id, user_id, res_id} = req.body;
 
     if (name) {
@@ -182,7 +184,7 @@ const addNewCollection = (req, res) => {
     }
 }
 
-const rename = (req, res) => {
+export const renameCollection = (req, res) => {
     const {id} = req.params;
     const {name} = req.body;
 
@@ -200,7 +202,7 @@ const rename = (req, res) => {
     }
 }
 
-const deleteCollection = (req, res) => {
+export const deleteCollection = (req, res) => {
     const {id} = req.params;
 
     pool.query('DELETE FROM cr_map WHERE c_id = $1', [id], (error, result) => {
@@ -218,7 +220,7 @@ const deleteCollection = (req, res) => {
     });
 }
 
-const deleteRestaurant = (req, res) => {
+export const deleteRestaurant = (req, res) => {
     const {id} = req.params;
 
     pool.query('DELETE FROM cr_map WHERE r_id = $1', [id], (error, result) => {
@@ -229,5 +231,3 @@ const deleteRestaurant = (req, res) => {
         res.status(200).send("Success");
     });
 }
-
-module.exports = {getRestaurants, getUserID, getCollections, getSavedRestaurants, register, login, addNewCollection, rename, deleteCollection, deleteRestaurant};
