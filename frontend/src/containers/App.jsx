@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Login from "../components/Login";
@@ -13,6 +13,36 @@ function App() {
   const [showLogin, setShowLogin] = useState(true);
   const [showRegister, setShowRegister] = useState(false);
   const [showApp, setShowApp] = useState(false);
+
+  useEffect(() => {
+    const login_state = sessionStorage.getItem("login-state");
+    const register_state = sessionStorage.getItem("register-state");
+    const app_state = sessionStorage.getItem("app-state");
+    const user_name = sessionStorage.getItem("username");
+
+    if (login_state) {
+      setShowLogin(JSON.parse(login_state));
+    }
+
+    if (register_state) {
+      setShowRegister(JSON.parse(register_state));
+    }
+
+    if (app_state) {
+      setShowApp(JSON.parse(app_state));
+    }
+
+    if (user_name) {
+      setUsername(JSON.parse(user_name));
+    }
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem("login-state", JSON.stringify(showLogin));
+    sessionStorage.setItem("register-state", JSON.stringify(showRegister));
+    sessionStorage.setItem("app-state", JSON.stringify(showApp));
+    sessionStorage.setItem("username", JSON.stringify(username));
+  }, [username, showLogin, showRegister, showApp]);
 
   function SwitchToRegister() {
     setShowLogin(false);
