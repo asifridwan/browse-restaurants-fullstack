@@ -13,6 +13,24 @@ export default function MainApp({username, onLogout}) {
         axios.get(`http://localhost:4000/users/${username}`).then(res => setUserID(res.data[0].id))
     }, [username]);
 
+    useEffect(() => {
+        const browse_state = sessionStorage.getItem("browse-state");
+        const saved_state = sessionStorage.getItem("saved-state");
+
+        if (browse_state) {
+            setShowBrowse(browse_state);
+        }
+
+        if (saved_state) {
+            setShowSaved(saved_state);
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage.setItem("browse-state", JSON.stringify(showBrowse));
+        sessionStorage.setItem("saved-state", JSON.stringify(showSaved));
+    }, [showBrowse, showSaved]);
+
     function switchToSaved() {
         setShowBrowse(false);
         setShowSaved(true);        
