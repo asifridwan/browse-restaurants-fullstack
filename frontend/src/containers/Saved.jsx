@@ -18,7 +18,7 @@ export default function Saved({userID, back}) {
 
     useEffect(() => {
         axios.get(`http://localhost:4000/collections/${userID}`).then(res => setCollections(res.data))
-    }, [userID, collectionName]);
+    }, [userID, showRenameModal, showCollectionDeleteModal]);
 
     function CloseRename() {
         setShowRenameModal(false);
