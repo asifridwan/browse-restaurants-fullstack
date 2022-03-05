@@ -6,4 +6,4 @@ CREATE TABLE users(id uuid NOT NULL PRIMARY KEY, username VARCHAR(50), email VAR
 
 CREATE TABLE collections(id uuid NOT NULL PRIMARY KEY, name VARCHAR(255), user_id uuid NOT NULL REFERENCES users(id));
 
-CREATE TABLE cr_map(c_id REFERENCES collections(id), r_id REFERENCES restaurants(id));
+CREATE TABLE cr_map(c_id uuid REFERENCES collections(id), r_id integer REFERENCES restaurants(id));
