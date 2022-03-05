@@ -2,6 +2,8 @@
 
 This has been created for Submission at Glints for Software Engineering Evaluation - Career Development
 
+Check out the live deployed version [through this link](https://asifridwan.github.io/browse-restaurants/)
+
 ### Features :
 - Login and Registration flow with a proper authentication system
 - View all restaurants in the database
