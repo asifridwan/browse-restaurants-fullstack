@@ -27,7 +27,7 @@ Check out the live deployed version [through this link](https://asifridwan.githu
 - Express framework on backend because it simplifies the development of backend REST APIs by a strong margin
 - uuid package to generate IDs for users and collections
 - bcrypt package to implement password hashing
-- I separated the whole app into 3 specific components and each component has it's own sub component, i.e., its all about separation of concerns
+- I separated the whole app into 3 specific components and each component has it's own set of sub-components, i.e., its all about separation of concerns
 - Instead of having individual stylesheet files for each component, I just went with one global stylesheet file that provides styling for the whole app
 
 ## How To Install :
