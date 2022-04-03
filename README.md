@@ -1,5 +1,7 @@
 # Browse Restaurants
 
+A full stack application that allows you to view available restaurants and add them to your own named collection !
+
 This has been created for Submission at Glints for Software Engineering Evaluation - Career Development
 
 Check out the live deployed version [through this link](https://asifridwan.github.io/browse-restaurants/)
